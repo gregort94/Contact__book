@@ -1,0 +1,90 @@
+/* === Задаем обертку для col элементов (аналог row из bootstrap) === */
+.row(@colOffset) {
+	display: flex;
+	flex-wrap: wrap;
+	margin: 0 -@colOffset;
+}
+/* === Задаем ширину элемента (аналог col bootstrap) ===*/
+
+// offset on margin
+.size(@n) {
+	@val: 100% / @colNumber * @n; 
+	margin: @colOffset ;
+	width: ~"calc(@{val} - 2 * @{colOffset})";
+}
+.size-lg(@n) {
+	@val: 100% / @colNumber * @n;
+	@media  (max-width: @lg) {
+		margin: @colOffset-lg ;
+		width: ~"calc(@{val} - 2 * @{colOffset-lg})" ;
+	}	
+}
+.size-md(@n) {
+	@val: 100% / @colNumber * @n;
+	@media  (max-width: @md) {
+		margin: @colOffset-md ;
+		width: ~"calc(@{val} - 2 * @{colOffset-md})" ;
+	}	
+}
+.size-sm(@n) {
+	@val: 100% / @colNumber * @n;
+	@media  (max-width: @sm) {
+		margin: @colOffset-sm ;
+		width: ~"calc(@{val} - 2 * @{colOffset-sm})" ;
+	}	
+}
+.size-xs(@n) {
+	@val: 100% / @colNumber * @n;
+	@media  (max-width: @xs) {
+		margin: @colOffset-xs ;
+		width: ~"calc(@{val} - 2 * @{colOffset-xs})" ;
+	}	
+}
+.flex-wrap(@colOffset) {
+	display: flex;
+	flex-wrap: wrap;
+	margin: 0 -@colOffset;
+}
+// offset on padding
+
+.sizeP(@n) {
+	@val: 100% / @colNumber * @n;
+	padding: @colOffset; 
+	width: @val;
+}
+.sizeP-lg(@n) {
+	@val: 100% / @colNumber * @n;
+	@media  (max-width: 1200px) {
+		padding: @colOffset-lg; 
+		width: @val;
+	}	
+}
+.sizeP-md(@n) {
+	@val: 100% / @colNumber * @n;
+	@media  (max-width: 992px) {
+		padding: @colOffset-md; 
+		width: @val;
+	}	
+}
+.sizeP-sm(@n) {
+	@val: 100% / @colNumber * @n;
+	@media  (max-width: 768px) {
+		padding: @colOffset-sm; 
+		width: @val ;
+	}	
+}
+.sizeP-xs(@n) {
+	@val: 100% / @colNumber * @n;
+	@media  (max-width: 576px) {
+		padding: @colOffset-xs; 
+		width: @val;
+	}	
+}
+
+/* === font-familys === */
+.reg() {
+	font-family: 'HelveticaNeueCyr', sans-serif  ;
+}
+.bold() {
+	font-family: 'HelveticaNeueCyr_black', sans-serif;
+}
