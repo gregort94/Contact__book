@@ -1,13 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>Contacts book</title>
 	<meta http-equiv="Content-type" content="text/html;charset=UTF-8" />
 	<link rel="stylesheet" href="css/main.css">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+	<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+	<title>Contacts book</title>
 </head>
 <body>
-	
+	<section class="contacts">
+		<div class="container">
+			<ul class="contacts__list">
+				
+
+
+			</ul>
+		</div>
+	</section>
+	<!-- template for contact -->
+	<template id="contact">
+		<li class="contact">
+			<div class="contact__avatar">
+				<img src="https://s3.amazonaws.com/uifaces/faces/twitter/joetruesdell/128.jpg" alt="" class="contact__avatar-img">
+			</div>
+			<div class="contact__info">
+				<p class="contact__name">Anna Conroy</p>
+				<div class="contact__optional">
+					<a href="tel:+79119112233" class="phone contact__phone">891231312313</a>
+					<p class="contact__email">Joaquin_Farrell79@yahoo.com</p>
+				</div>
+			</div>
+		</li>
+	</template>
 	<script src="js/main.js"></script>
+	<script src="js/backend.js"></script>
+	<script src="js/renderContacts.js"></script>
 </body>
 </html>

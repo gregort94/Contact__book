@@ -1,12 +1,18 @@
 html {
-  font-size: 10px;
+  font-size: 16px;
+  .reg();
 }
 body {
-  .reg();
-	font-size: 1.6rem;
+  
 }
 a {
   text-decoration: none;
+  &:hover {
+    color: #00A9D3;
+  }
+  &:active {
+    color: #046675;
+  }
 }
 .container {
 	max-width: 1140px;
@@ -23,5 +29,13 @@ a {
   }
   @media (max-width: @xs) {
     max-width: 100%;
+  }
+}
+.phone {
+  &:hover {
+    color: #00A9D3;
+  }
+  &:active {
+    color: #046675;
   }
 }

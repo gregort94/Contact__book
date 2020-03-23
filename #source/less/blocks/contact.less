@@ -1,0 +1,43 @@
+.contact {
+	display: flex;
+	background-color: #C5D761;
+	padding: 20px;
+	&__avatar {
+		flex-grow: 0;
+		flex: 0 0 90px;
+		height: 90px;
+		margin: 0px 10px 0px 0px;
+		border-radius: 50%;
+		overflow: hidden;
+		object-fit: contain;
+	}
+	&__img {}
+	&__info {
+		flex-grow: 1;
+		display: flex;
+		flex-direction: column;
+		overflow: hidden;
+		justify-content: space-between;
+	}
+	&__name {
+		.bold();
+		text-align: center;
+	}
+	&__optional {}
+	&__phone {
+		display: block;
+	}
+	&__email {
+		overflow: hidden;
+		white-space: nowrap;
+		text-overflow: ellipsis;
+		font-size: 13px;
+	}
+	@media (max-width: @md) {
+		
+	}
+	@media (max-width: @sm) {
+		
+	}
+}
+
