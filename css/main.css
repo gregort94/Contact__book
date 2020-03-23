@@ -464,31 +464,43 @@ a:active {
     max-width: 100%;
   }
 }
-.phone:hover {
-  color: #00A9D3;
+.overlay {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.8);
 }
-.phone:active {
-  color: #046675;
+.overlay--hidden {
+  display: none;
 }
 .contact {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  background-color: #C5D761;
-  padding: 20px;
+  background-color: #E57878;
+  padding: 15px 50px 15px 15px;
+  position: relative;
+  border-radius: 10px;
+  overflow: auto;
 }
 .contact__avatar {
   -webkit-box-flex: 0;
       -ms-flex-positive: 0;
           flex-grow: 0;
-  -ms-flex: 0 0 90px;
-      flex: 0 0 90px;
-  height: 90px;
+  -ms-flex: 0 0 70px;
+      flex: 0 0 70px;
+  height: 70px;
   margin: 0px 10px 0px 0px;
   border-radius: 50%;
   overflow: hidden;
-  -o-object-fit: contain;
-     object-fit: contain;
+}
+.contact__avatar-img {
+  -o-object-fit: cover;
+     object-fit: cover;
+  width: 100%;
+  height: 100%;
 }
 .contact__info {
   -webkit-box-flex: 1;
@@ -508,10 +520,20 @@ a:active {
 }
 .contact__name {
   font-family: "Open Sans Bold", "Arial", sans-serif;
-  text-align: center;
 }
 .contact__phone {
   display: block;
+}
+.contact__phone-icon {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  -webkit-transform: translate(-10px, -50%);
+      -ms-transform: translate(-10px, -50%);
+          transform: translate(-10px, -50%);
+}
+.contact__phone-icon img {
+  fill: red;
 }
 .contact__email {
   overflow: hidden;
@@ -520,17 +542,20 @@ a:active {
      text-overflow: ellipsis;
   font-size: 13px;
 }
+.contact--favorite .contact__avatar {
+  border: 4px solid #F0C600;
+}
 .contacts__list {
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: 1fr 20px 1fr 20px 1fr;
+  -ms-grid-columns: 1fr 15px 1fr 15px 1fr;
   grid-template-columns: 1fr 1fr 1fr;
-  grid-auto-rows: 130px;
-  grid-gap: 20px;
+  grid-auto-rows: 100px;
+  grid-gap: 15px;
 }
-@media (max-width: 992px) {
+@media (max-width: 1200px) {
   .contacts__list {
-    -ms-grid-columns: 1fr 20px 1fr;
+    -ms-grid-columns: 1fr 15px 1fr;
     grid-template-columns: 1fr 1fr;
   }
 }
@@ -539,4 +564,17 @@ a:active {
     -ms-grid-columns: 1fr;
     grid-template-columns: 1fr;
   }
+}
+.profile {
+  margin: 100px 0px 100px 0px;
+  background-color: #fff;
+  position: relative;
+  padding: 15px;
+}
+.profile__edit {
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  top: 15px;
+  right: 15px;
 }

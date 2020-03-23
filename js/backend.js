@@ -4,8 +4,8 @@ const UPLOAD_CONTACTS_URL = {method: 'GET', url: 'http://demo.sibers.com/users'}
 
 let uploadContacts = (successHandler) => {
 	if (localStorage.contactsData){
-		let contactsData = JSON.parse(localStorage.contactsData);
-		successHandler(contactsData);
+		window.contactsData = JSON.parse(localStorage.contactsData);
+		successHandler(window.contactsData);
 		console.log(contactsData);
 		return
 	}

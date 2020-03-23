@@ -11,29 +11,77 @@
 	<section class="contacts">
 		<div class="container">
 			<ul class="contacts__list">
-				
-
 
 			</ul>
 		</div>
+	</section>
+	<section class="overlay overlay--hidden">
+		<div class="container profile__container">
+			<form class="profile">
+				<div class="profile__top">
+					<div class="profile__avatar">
+						<img src="https://s3.amazonaws.com/uifaces/faces/twitter/michaelcolenso/128.jpg" alt="">
+					</div>
+					<button class="profile__edit">
+						<img src="img/icons/edit.svg" alt="edit-profile">
+					</button>
+				</div>
+				<div class="profile__bottom">
+					<div class="profile__name">
+						<input id="name" type="text" class="profile__input">
+					</div>
+					<div class="profile__phone">
+						<label for="phone" class="profile__label">Phone</label>
+						<input id="phone" type="phone" class="profile__input">
+					</div>
+					<div class="profile__email">
+						<label for="email" class="profile__label">Email</label>
+						<input id="email" type="tel" class="profile__input">
+					</div>
+					<div class="profile__website">
+						<label for="website" class="profile__label">Website</label>
+						<input id="website" type="url" class="profile__input">
+					</div>
+					<fieldset class="profile__adress">
+						<legend>Adress</legend>
+						<div class="profile__country">
+							<label for="country" class="profile__label">Country</label>
+							<input id="country" type="text" class="profile__input">
+						</div>
+						<div class="profile__state">
+							<label for="state" class="profile__label">State</label>
+							<input id="state" type="text" class="profile__input">
+						</div>
+						<div class="profile__city">
+							<label for="city" class="profile__label">City</label>
+							<input id="city" type="text" class="profile__input">
+						</div>
+					</fieldset>
+				</div>
+			</form>
+		</div> 		
 	</section>
 	<!-- template for contact -->
 	<template id="contact">
 		<li class="contact">
 			<div class="contact__avatar">
-				<img src="https://s3.amazonaws.com/uifaces/faces/twitter/joetruesdell/128.jpg" alt="" class="contact__avatar-img">
+				<img src="#" alt="" class="contact__avatar-img">
 			</div>
 			<div class="contact__info">
 				<p class="contact__name">Anna Conroy</p>
 				<div class="contact__optional">
-					<a href="tel:+79119112233" class="phone contact__phone">891231312313</a>
+					<p class="contact__phone">
+						<span class="	contact__phone-number">891231312313</span>
+						<a href="#" class="contact__phone-icon"><img src="img/icons/phone.svg" alt=""></a>
+					</p>
 					<p class="contact__email">Joaquin_Farrell79@yahoo.com</p>
 				</div>
 			</div>
 		</li>
 	</template>
-	<script src="js/main.js"></script>
+
 	<script src="js/backend.js"></script>
+	<script src="js/profile.js"></script>
 	<script src="js/renderContacts.js"></script>
 </body>
 </html>
