@@ -475,6 +475,19 @@ a:active {
 .overlay--hidden {
   display: none;
 }
+.fitImg {
+  -o-object-fit: cover;
+     object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+.inputControl {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  position: absolute;
+  cursor: pointer;
+}
 .contact {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -484,6 +497,7 @@ a:active {
   position: relative;
   border-radius: 10px;
   overflow: auto;
+  cursor: pointer;
 }
 .contact__avatar {
   -webkit-box-flex: 0;
@@ -495,12 +509,6 @@ a:active {
   margin: 0px 10px 0px 0px;
   border-radius: 50%;
   overflow: hidden;
-}
-.contact__avatar-img {
-  -o-object-fit: cover;
-     object-fit: cover;
-  width: 100%;
-  height: 100%;
 }
 .contact__info {
   -webkit-box-flex: 1;
@@ -524,7 +532,7 @@ a:active {
 .contact__phone {
   display: block;
 }
-.contact__phone-icon {
+.contact__phone-link {
   position: absolute;
   right: 0;
   top: 50%;
@@ -532,8 +540,13 @@ a:active {
       -ms-transform: translate(-10px, -50%);
           transform: translate(-10px, -50%);
 }
-.contact__phone-icon img {
-  fill: red;
+.contact__phone-link:hover .contact__phone-icon {
+  -webkit-filter: invert(1);
+          filter: invert(1);
+}
+.contact__phone-link:focus .contact__phone-icon {
+  -webkit-filter: invert(1);
+          filter: invert(1);
 }
 .contact__email {
   overflow: hidden;
@@ -566,15 +579,115 @@ a:active {
   }
 }
 .profile {
-  margin: 100px 0px 100px 0px;
+  margin: 100px auto;
   background-color: #fff;
   position: relative;
   padding: 15px;
+  width: 500px;
+  background-color: #8CE0C9;
+}
+.profile__top {
+  position: relative;
+  margin-bottom: 20px;
+}
+.profile__avatar {
+  width: 200px;
+  height: 200px;
+  margin: auto;
+  border-radius: 3px;
+  overflow: hidden;
+}
+@media (max-width: 576px) {
+  .profile__avatar {
+    width: 180px;
+    height: 180px;
+  }
 }
 .profile__edit {
   width: 50px;
   height: 50px;
   position: absolute;
-  top: 15px;
-  right: 15px;
+  top: 0;
+  right: 0;
+}
+.profile__fieldset {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  text-align: center;
+}
+.profile__fieldset label {
+  font-family: "Open Sans Bold", "Arial", sans-serif;
+  text-transform: uppercase;
+}
+.profile__fieldset input {
+  text-align: center;
+  font-style: italic;
+}
+.profile__fieldset input:disabled {
+  background-color: #A29090;
+}
+.profile__star {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 50px;
+  height: 50px;
+}
+.profile__star-label img {
+  -webkit-filter: invert(0.5);
+          filter: invert(0.5);
+}
+.profile__close {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 50px;
+  height: 50px;
+}
+.profile__close:before {
+  content: '';
+  display: block;
+  height: 2px;
+  top: 50%;
+  -webkit-transform: translate(0, -50%) rotate(-45deg);
+      -ms-transform: translate(0, -50%) rotate(-45deg);
+          transform: translate(0, -50%) rotate(-45deg);
+  background-color: black;
+}
+.profile__close:after {
+  content: '';
+  display: block;
+  height: 2px;
+  top: 50%;
+  -webkit-transform: translate(0, -50%) rotate(45deg);
+      -ms-transform: translate(0, -50%) rotate(45deg);
+          transform: translate(0, -50%) rotate(45deg);
+  background-color: black;
+}
+.profile__save {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 50px;
+  height: 50px;
+}
+@media (max-width: 768px) {
+  .profile {
+    width: 100%;
+    margin: 0;
+    height: 100vh;
+    overflow: auto;
+  }
+}
+.profile__star-input:focus + .profile__star-label img {
+  outline: 5px auto -webkit-focus-ring-color;
+}
+.profile__star-input:checked + .profile__star-label img {
+  -webkit-filter: invert(0);
+          filter: invert(0);
 }

@@ -14,7 +14,9 @@ let uploadContacts = (successHandler) => {
 	xhr.addEventListener('load', () => {
 		switch (xhr.status) {
 		   case 200:
-		   	localStorage.setItem('contactsData', xhr.response);			   
+		   	localStorage.setItem('contactsData', xhr.response);
+		   	window.contactsData = JSON.parse(localStorage.contactsData);
+		   	successHandler(window.contactsData);			   
 			   break;
 		   case 400:
 			   console.error('Invalid request');

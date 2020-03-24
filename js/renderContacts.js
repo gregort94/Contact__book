@@ -8,7 +8,7 @@
 		let avatar = contact.querySelector('.contact__avatar-img');
 		let name = contact.querySelector('.contact__name');
 		let phoneNumber = contact.querySelector('.contact__phone-number');
-		let phoneIcon = contact.querySelector('.contact__phone-icon');
+		let phoneIcon = contact.querySelector('.contact__phone-link');
 		let email = contact.querySelector('.contact__email');
 		avatar.src = contactData.avatar;
 		name.textContent = contactData.name;

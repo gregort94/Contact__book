@@ -1,27 +1,105 @@
 .profile {
-	margin: 100px 0px 100px 0px;
+	margin: 100px auto;
 	background-color: #fff;
 	position: relative;
 	padding: 15px;
-	&__container {}
-	&__top {}
-	&__avatar {}
+	width: 500px;
+	background-color: #8CE0C9;
+	&__top {
+		position: relative;
+		margin-bottom: 20px;
+	}
+	&__avatar {
+		width: 200px;
+		height: 200px;
+		margin: auto;
+		border-radius: 3px;
+		overflow: hidden;
+		@media (max-width: @xs) {
+			width: 180px;
+			height: 180px;
+		}
+	}
 	&__edit {
 		width: 50px;
 		height: 50px;
 		position: absolute;
-		top: 15px;
-		right: 15px;
+		top: 0;
+		right: 0;
 	}
+	&__fieldset {
+		display: flex;
+		flex-direction: column;
+		text-align: center;
+		label {
+			.bold();
+			text-transform: uppercase;
+		}
+		input {
+			text-align: center;
+			font-style: italic;
+			&:disabled{
+				background-color: #A29090;
+			}
+			
+		}
+	}
+	&__star {
+		position: absolute;
+		left: 0;
+		bottom: 0;
+		width: 50px;
+		height: 50px;
+	}
+	&__star-label img {
+		filter: invert(.5);
+	}
+	&__star-input {
+		
+	}
+	&__close {
+		position: absolute;
+		left: 0;
+		top: 0;
+		width: 50px;
+		height: 50px;
+		&:before {
+			content: '';
+			display: block;
+			height: 2px;
+			top: 50%;
+			transform: translate(0, -50%) rotate(-45deg);
+			background-color: black;
+		}
+		&:after {
+			content: '';
+			display: block;
+			height: 2px;
+			top: 50%;
+			transform: translate(0, -50%) rotate(45deg);
+			background-color: black;
+		}
+	}
+	&__save {
+		position: absolute;
+		bottom: 0;
+		right: 0;
+		width: 50px;
+		height: 50px;
+	}
+
 	&__bottom {}
-	&__name {}
-	&__input {}
-	&__phone {}
-	&__label {}
-	&__email {}
-	&__website {}
-	&__adress {}
-	&__country {}
-	&__state {}
-	&__city {}
+
+	@media (max-width: @sm) {
+		width: 100%;
+		margin: 0;
+		height: 100vh;
+		overflow: auto;
+	}
+}
+.profile__star-input:focus + .profile__star-label img {
+	outline: 5px auto -webkit-focus-ring-color;
+}
+.profile__star-input:checked + .profile__star-label img {
+	filter: invert(0);
 }

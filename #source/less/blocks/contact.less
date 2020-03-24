@@ -5,6 +5,7 @@
 	position: relative;
 	border-radius: 10px;
 	overflow: auto;
+	cursor: pointer;
 	&__avatar {
 		flex-grow: 0;
 		flex: 0 0 70px;
@@ -12,11 +13,6 @@
 		margin: 0px 10px 0px 0px;
 		border-radius: 50%;
 		overflow: hidden;	
-	}
-	&__avatar-img {
-		object-fit: cover;
-		width: 100%;
-		height: 100%;
 	}
 	&__info {
 		flex-grow: 1;
@@ -32,15 +28,19 @@
 	&__phone {
 		display: block;
 	}
-	&__phone-icon {
+	&__phone-link {
 		position: absolute;
 		right: 0;
 		top: 50%;
 		transform: translate(-10px, -50%);
-		img {
-			fill: red;
+		&:hover .contact__phone-icon {
+			filter: invert(1);
+		}
+		&:focus .contact__phone-icon {
+			filter: invert(1);
 		}
 	}
+
 	&__email {
 		overflow: hidden;
 		white-space: nowrap;
