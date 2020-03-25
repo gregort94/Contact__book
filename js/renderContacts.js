@@ -1,6 +1,6 @@
 (() => {
-
-	let contactsBody = document.querySelector('.contacts__list');
+	let contactsBody = document.querySelector('.contacts .container');
+	let contactsBlock = document.querySelector('#contactBlock').content.querySelector('.contacts__block');
 	let contactTemplate = document.querySelector('#contact').content.querySelector('.contact');
 
 /* Set default listeners to contactTemplate */
@@ -44,9 +44,20 @@
 
 /* Render and append created contacts elements */
 	let renderContacts = (contactsData) => {
+		let currentLetter;
+		let currentContactBlock;
 		contactsData.forEach(function(contactData, i){
+			if (contactData.name[0] !== currentLetter){
+				currentLetter = contactData.name[0];
+				currentContactBlock = contactsBlock.cloneNode(true);
+				let letterElem = currentContactBlock.querySelector('.contacts__letter');
+				letterElem.textContent = currentLetter;
+				contactsBody.appendChild(currentContactBlock);
+				console.log(currentLetter);
+			}
+			let contactList = currentContactBlock.querySelector('.contacts__list');
 			let contact = createContact(contactData);
-			contactsBody.appendChild(contact);
+			contactList.appendChild(contact);
 		});
 	};
 
