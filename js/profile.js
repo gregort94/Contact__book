@@ -23,19 +23,19 @@
 	let disableInputs = () => {
 		profileInputs.forEach((input) => {
 			input.disabled = true;
-		})
-	}
+		});
+	};
 
 	let enableInputs = () => {
 		profileInputs.forEach((input) => {
 			input.disabled = false;
-		})
-	}
+		});
+	};
 
 	let closeProfileHandleer = (evt) => {
 		overlay.classList.add('overlay--hidden');
 		disableInputs();
-	}
+	};
 
 	let containProfile = (profileData) => {
 		profileAvatar.src = profileData.avatar;
@@ -46,18 +46,15 @@
 		profileState.value = profileData.address.state;
 		profileCity.value = profileData.address.city;
 		profileFavorite.checked = profileData.favorite;
-	}
+	};
 
 	let contactClickHandler = function(evt) {
-		let isPhoneIcon = evt.target.classList.contains('contact__phone-icon');
-		if (isPhoneIcon){return}
-
 		disableInputs();
 		overlay.classList.remove('overlay--hidden');
 		currentContactElement = this;
-		currentContactData = window.contactsData[this.getAttribute("data-order")];
+		currentContactData = window.contactsData[this.getAttribute("data-id")];
 		containProfile(currentContactData);
-	}
+	};
 
 /* Add listeners to close profile */
 	overlay.addEventListener('mousedown', (evt) => {
@@ -65,23 +62,22 @@
 			closeProfileHandleer();
 		}
 	});
-
 	profileClose.addEventListener('click', closeProfileHandleer);
 	document.addEventListener('keydown', (evt) => {
 		if (evt.keyCode === 27) {
 			closeProfileHandleer();
 		}
-	})
+	});
 
 /* Add listeners to edit profile */
 	profileEdit.addEventListener('click', (evt) => {
 		evt.preventDefault;
 		enableInputs();
-	})
+	});
+
 
 /* ================ Edit profile ============== */
 	
-
 	let updateCurrentContact = (element) => {
 		let avatar = element.querySelector('.contact__avatar');
 		let name = element.querySelector('.contact__name');
@@ -96,7 +92,7 @@
 		} else {
 			element.classList.remove('contact--favorite');
 		}
-	}
+	};
 
 	let changeContactData = () => {
 		currentContactData.name = profileName.value; 
@@ -106,21 +102,20 @@
 		currentContactData.address.state = profileState.value;
 		currentContactData.address.city = profileCity.value;
 		currentContactData.favorite = profileFavorite.checked;
-	}
+	};
 
 	let saveChangesHandler = function() {
 		changeContactData();
 		updateCurrentContact(currentContactElement);
-	}
-
-
+	};
 
 	profileSave.addEventListener('click', saveChangesHandler);
 
 
 /* ================== Export =================*/
+
 	window.profile = {
 		contactClickHandler: contactClickHandler,
-	}
+	};
 
-})()
+})();
