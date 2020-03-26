@@ -1,6 +1,6 @@
 .contact {
 	display: flex;
-	background-color: #E57878;
+	background-color: @contactBG;
 	padding: 15px 50px 15px 15px;
 	position: relative;
 	border-radius: 10px;
@@ -12,7 +12,8 @@
 		height: 70px;
 		margin: 0px 10px 0px 0px;
 		border-radius: 50%;
-		overflow: hidden;	
+		overflow: hidden;
+		align-self: center;	
 	}
 	&__info {
 		flex-grow: 1;
@@ -23,10 +24,15 @@
 	}
 	&__name {
 		.bold();
+		white-space: nowrap;
+		text-overflow: ellipsis;
 	}
 	&__optional {}
 	&__phone {
 		display: block;
+		overflow: hidden;
+		white-space: nowrap;
+		text-overflow: ellipsis;
 	}
 	&__phone-link {
 		position: absolute;
@@ -49,14 +55,11 @@
 	}
 	&--favorite {
 		.contact__avatar {
-			border: 4px solid #F0C600;
+			border: 5px solid @favoriteAvatarBorder;
 		}
 	}
-	@media (max-width: @md) {
-		
-	}
 	@media (max-width: @sm) {
-		
+		padding: 15px 50px 15px 5px;
 	}
 }
 

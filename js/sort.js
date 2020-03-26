@@ -10,12 +10,7 @@
 						return 0 
 					})
 	};	
-
-	let sortNameClickHandler = () => {
-		let sortedDataArray =  sortByName(window.contactsData.slice());
-		window.renderContacts(sortedDataArray);
-	};
-
+	
 /* ============= Export ============= */
 	
 	window.sort = {

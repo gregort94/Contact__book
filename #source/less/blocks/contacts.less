@@ -1,9 +1,15 @@
 .contacts {
-	
+	background-color: @background;
 	&__block {
 		padding: 15px 0px 15px 50px;
 		border-bottom: 2px solid black;
 		position: relative;
+		@media (max-width: @sm) {
+			margin-right: 31px;
+		}
+		@media (max-width: @xs) {
+			padding: 15px 0px 15px 0px;
+		}
 	}
 	&__list {
 		display: grid;
@@ -22,9 +28,12 @@
 		height: 50px;
 		position: absolute;
 		left: 0;
-		top: 50%;
+		top: 50px;
 		transform: translate(0, -50%);
 		font-size: 50px;
+		@media (max-width: @xs) {
+			appearance: none;
+		}
 	}
 
 }

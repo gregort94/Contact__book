@@ -1,4 +1,5 @@
 (() => {
+	
 	let contactsBody = document.querySelector('.contacts .container');
 	let contactsBlock = document.querySelector('#contactBlock').content.querySelector('.contacts__block');
 	let contactTemplate = document.querySelector('#contact').content.querySelector('.contact');
@@ -52,8 +53,8 @@
 				currentContactBlock = contactsBlock.cloneNode(true);
 				let letterElem = currentContactBlock.querySelector('.contacts__letter');
 				letterElem.textContent = currentLetter;
+				letterElem.id = currentLetter;
 				contactsBody.appendChild(currentContactBlock);
-				console.log(currentLetter);
 			}
 			let contactList = currentContactBlock.querySelector('.contacts__list');
 			let contact = createContact(contactData);
