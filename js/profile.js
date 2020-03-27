@@ -75,6 +75,11 @@
 		enableInputs();
 	});
 
+/* Cancel form submit*/
+	profile.addEventListener('submit', (evt) => {
+		evt.preventDefault();
+	});
+
 
 /* ================ Edit profile ============== */
 	

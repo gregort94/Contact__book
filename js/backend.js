@@ -34,13 +34,13 @@ let uploadContacts = (successHandler) => {
 		}	
 	})
 	xhr.send();
-}
+};
 
 
 /* ================== Export =================*/
 
 window.backend = {
 	uploadContacts: uploadContacts,
-}
+};
 
 })();

@@ -15,11 +15,11 @@
 		let phoneIcon = element.querySelector('.contact__phone-link');
 		phoneIcon.addEventListener('click', (evt) => {
 			evt.stopPropagation();
-		})
+		});
 		phoneIcon.addEventListener('keydown', (evt) => {
 			evt.stopPropagation()
-		})
-	}
+		});
+	};
 
 /* Create contact elem by data*/
 	let createContact = (contactData) => {
