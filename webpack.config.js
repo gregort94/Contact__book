@@ -50,6 +50,9 @@ module.exports = {
       filename: 'bundle.js',
       path: path.resolve(__dirname, 'dist')
    },
+   devServer: {
+      overlay: true
+   },
    plugins: [
       new HtmlWebpackPlugin({
          template: "./index.html",

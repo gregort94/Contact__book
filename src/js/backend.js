@@ -3,14 +3,14 @@ import sortByName from './sort'
 const UPLOAD_CONTACTS_URL = { method: 'GET', url: 'http://demo.sibers.com/users' };
 
 /* Get contacts data array form server by Ajax*/
-let uploadContacts = (successHandler) => {
+const uploadContacts = (successHandler) => {
 	if (localStorage.contactsData) {
 		window.contactsData = JSON.parse(localStorage.contactsData);
 		let sortedData = sortByName(window.contactsData.slice());
 		successHandler(sortedData);
 		return
 	}
-	let xhr = new XMLHttpRequest();
+	const xhr = new XMLHttpRequest();
 	xhr.open(UPLOAD_CONTACTS_URL.method, UPLOAD_CONTACTS_URL.url);
 	xhr.addEventListener('load', () => {
 		switch (xhr.status) {

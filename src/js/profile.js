@@ -1,50 +1,50 @@
 /* ============= Profile elements ============= */
-let overlay = document.querySelector('.overlay');
+const overlay = document.querySelector('.overlay');
 
-let profile = document.querySelector('.profile');
-let profileAvatar = profile.querySelector('.profile__avatar img');
-let profileName = profile.querySelector('.profile__fieldset--name input');
-let profilePhone = profile.querySelector('.profile__fieldset--phone input');
-let profileEmail = profile.querySelector('.profile__fieldset--email input');
-let profileCountry = profile.querySelector('.profile__fieldset--country input');
-let profileState = profile.querySelector('.profile__fieldset--state input');
-let profileCity = profile.querySelector('.profile__fieldset--city input');
-let profileFavorite = profile.querySelector('.profile__star-input');
-let profileEdit = profile.querySelector('.profile__edit');
-let profileClose = profile.querySelector('.profile__close');
-let profileSave = profile.querySelector('.profile__save');
-let profileInputs = profile.querySelectorAll('.profile input');
-let profileMessage = profile.querySelector('.profile__message');
+const profile = document.querySelector('.profile');
+const profileAvatar = profile.querySelector('.profile__avatar img');
+const profileName = profile.querySelector('.profile__fieldset--name input');
+const profilePhone = profile.querySelector('.profile__fieldset--phone input');
+const profileEmail = profile.querySelector('.profile__fieldset--email input');
+const profileCountry = profile.querySelector('.profile__fieldset--country input');
+const profileState = profile.querySelector('.profile__fieldset--state input');
+const profileCity = profile.querySelector('.profile__fieldset--city input');
+const profileFavorite = profile.querySelector('.profile__star-input');
+const profileEdit = profile.querySelector('.profile__edit');
+const profileClose = profile.querySelector('.profile__close');
+const profileSave = profile.querySelector('.profile__save');
+const profileInputs = profile.querySelectorAll('.profile input');
+const profileMessage = profile.querySelector('.profile__message');
 
 let currentContactData;
 let currentContactElement;
 
-let disableInputs = () => {
+const disableInputs = () => {
 	profileInputs.forEach((input) => {
 		input.disabled = true;
 	});
 };
 
-let disableBtn = (btn) => {
+const disableBtn = (btn) => {
 	btn.disabled = true;
 };
-let enableBtn = (btn) => {
+const enableBtn = (btn) => {
 	btn.disabled = false;
 };
 
-let enableInputs = () => {
+const enableInputs = () => {
 	profileInputs.forEach((input) => {
 		input.disabled = false;
 	});
 };
 
-let closeProfileHandleer = (evt) => {
+const closeProfileHandleer = (evt) => {
 	overlay.classList.add('overlay--hidden');
 	disableInputs();
 	// disableBtn(profileSave);
 };
 
-let containProfile = (profileData) => {
+const containProfile = (profileData) => {
 	profileAvatar.src = profileData.avatar;
 	profileName.value = profileData.name;
 	profilePhone.value = profileData.phone;
@@ -55,7 +55,7 @@ let containProfile = (profileData) => {
 	profileFavorite.checked = profileData.favorite;
 };
 
-let contactClickHandler = function (evt) {
+const contactClickHandler = function (evt) {
 	disableInputs();
 	overlay.classList.remove('overlay--hidden');
 	currentContactElement = this;
@@ -64,12 +64,12 @@ let contactClickHandler = function (evt) {
 };
 
 /* Add listeners to close profile */
-overlay.addEventListener('mousedown', (evt) => {
-	if (evt.target === overlay) {
+overlay.addEventListener('click', (evt) => {
+	if (evt.target.dataset.close === '') {
 		closeProfileHandleer();
 	}
 });
-profileClose.addEventListener('click', closeProfileHandleer);
+
 document.addEventListener('keydown', (evt) => {
 	if (evt.keyCode === 27) {
 		closeProfileHandleer();
@@ -87,11 +87,11 @@ profileEdit.addEventListener('click', (evt) => {
 
 /* ================ Edit profile ============== */
 
-let updateCurrentContact = (element) => {
-	let avatar = element.querySelector('.contact__avatar');
-	let name = element.querySelector('.contact__name');
-	let phoneNumber = element.querySelector('.contact__phone-number');
-	let email = element.querySelector('.contact__email');
+const updateCurrentContact = (element) => {
+	const avatar = element.querySelector('.contact__avatar');
+	const name = element.querySelector('.contact__name');
+	const phoneNumber = element.querySelector('.contact__phone-number');
+	const email = element.querySelector('.contact__email');
 
 	name.textContent = currentContactData.name;
 	phoneNumber.textContent = currentContactData.phone;
@@ -103,7 +103,7 @@ let updateCurrentContact = (element) => {
 	}
 };
 
-let changeContactData = () => {
+const changeContactData = () => {
 	currentContactData.name = profileName.value;
 	currentContactData.phone = profilePhone.value;
 	currentContactData.email = profileEmail.value;
@@ -113,7 +113,7 @@ let changeContactData = () => {
 	currentContactData.favorite = profileFavorite.checked;
 };
 
-let submitProfileHandler = function (evt) {
+const submitProfileHandler = function (evt) {
 	changeContactData();
 	updateCurrentContact(currentContactElement);
 	showMessage();
@@ -123,7 +123,7 @@ let submitProfileHandler = function (evt) {
 profile.addEventListener('submit', submitProfileHandler);
 
 
-let showMessage = () => {
+const showMessage = () => {
 	profileMessage.classList.add('profile__message--visable');
 	setTimeout(() => {
 		profileMessage.classList.remove('profile__message--visable');
