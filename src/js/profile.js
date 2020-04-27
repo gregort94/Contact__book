@@ -14,6 +14,7 @@ let profileEdit = profile.querySelector('.profile__edit');
 let profileClose = profile.querySelector('.profile__close');
 let profileSave = profile.querySelector('.profile__save');
 let profileInputs = profile.querySelectorAll('.profile input');
+let profileMessage = profile.querySelector('.profile__message');
 
 let currentContactData;
 let currentContactElement;
@@ -22,6 +23,13 @@ let disableInputs = () => {
 	profileInputs.forEach((input) => {
 		input.disabled = true;
 	});
+};
+
+let disableBtn = (btn) => {
+	btn.disabled = true;
+};
+let enableBtn = (btn) => {
+	btn.disabled = false;
 };
 
 let enableInputs = () => {
@@ -33,6 +41,7 @@ let enableInputs = () => {
 let closeProfileHandleer = (evt) => {
 	overlay.classList.add('overlay--hidden');
 	disableInputs();
+	// disableBtn(profileSave);
 };
 
 let containProfile = (profileData) => {
@@ -69,14 +78,11 @@ document.addEventListener('keydown', (evt) => {
 
 /* Add listeners to edit profile */
 profileEdit.addEventListener('click', (evt) => {
-	evt.preventDefault;
 	enableInputs();
+	enableBtn(profileSave);
+	// disableBtn(profileEdit);
 });
 
-/* Cancel form submit*/
-profile.addEventListener('submit', (evt) => {
-	evt.preventDefault();
-});
 
 
 /* ================ Edit profile ============== */
@@ -107,12 +113,23 @@ let changeContactData = () => {
 	currentContactData.favorite = profileFavorite.checked;
 };
 
-let saveChangesHandler = function () {
+let submitProfileHandler = function (evt) {
 	changeContactData();
 	updateCurrentContact(currentContactElement);
+	showMessage();
+	evt.preventDefault();
 };
 
-profileSave.addEventListener('click', saveChangesHandler);
+profile.addEventListener('submit', submitProfileHandler);
+
+
+let showMessage = () => {
+	profileMessage.classList.add('profile__message--visable');
+	setTimeout(() => {
+		profileMessage.classList.remove('profile__message--visable');
+	}, 1500);
+};
+
 
 
 /* ================== Export =================*/
