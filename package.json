@@ -34,6 +34,7 @@
     "webpack-dev-server": "^3.10.3"
   },
   "dependencies": {
+    "animate.css": "^3.7.2",
     "normalize.css": "^8.0.1"
   },
   "browserslist": "> 0.25%, not dead"

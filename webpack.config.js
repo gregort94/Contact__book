@@ -51,7 +51,8 @@ module.exports = {
       path: path.resolve(__dirname, 'dist')
    },
    devServer: {
-      overlay: true
+      overlay: true,
+      hot: true,
    },
    plugins: [
       new HtmlWebpackPlugin({

@@ -16,6 +16,12 @@ const profileSave = profile.querySelector('.profile__save');
 const profileInputs = profile.querySelectorAll('.profile input');
 const profileMessage = profile.querySelector('.profile__message');
 
+/* profile animation settings */
+const maxWidth = document.documentElement.clientWidth;
+const PROFILE_ANIMATION_IN = maxWidth < 768 ? 'slideInDown' : 'fadeIn';
+const PROFILE_ANIMATION_OUT = maxWidth < 768 ? 'slideOutUp' : 'fadeOut';
+const PROFILE_ANIMATION_TIME = 270;
+
 let currentContactData;
 let currentContactElement;
 
@@ -39,9 +45,16 @@ const enableInputs = () => {
 };
 
 const closeProfileHandleer = (evt) => {
-	overlay.classList.add('overlay--hidden');
+	overlay.classList.add('overlay--hiding');
+	profile.classList.remove(PROFILE_ANIMATION_IN);
+	profile.classList.add(PROFILE_ANIMATION_OUT);
+	setTimeout(() => {
+		overlay.classList.add('overlay--hidden');
+		overlay.classList.remove('overlay--hiding');
+		profile.classList.remove(PROFILE_ANIMATION_OUT);
+	}, PROFILE_ANIMATION_TIME);
+
 	disableInputs();
-	// disableBtn(profileSave);
 };
 
 const containProfile = (profileData) => {
@@ -55,12 +68,17 @@ const containProfile = (profileData) => {
 	profileFavorite.checked = profileData.favorite;
 };
 
+const showProfile = () => {
+	overlay.classList.remove('overlay--hidden');
+	profile.classList.add(PROFILE_ANIMATION_IN);
+};
+
 const contactClickHandler = function (evt) {
 	disableInputs();
-	overlay.classList.remove('overlay--hidden');
 	currentContactElement = this;
 	currentContactData = window.contactsData[this.getAttribute("data-id")];
 	containProfile(currentContactData);
+	showProfile()
 };
 
 /* Add listeners to close profile */

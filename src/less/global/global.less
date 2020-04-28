@@ -39,8 +39,13 @@ a {
   top: 0;
   left: 0;
   background-color: rgba(0, 0, 0, 0.8);
+  transition: background 0.3s ease 0s;
   &--hidden {
-    display: none;
+    z-index: -100;
+    background-color: rgba(0, 0, 0, 0);
+  }
+  &--hiding {
+    background-color: rgba(0, 0, 0, 0);
   }
 }
 .fitImg {
