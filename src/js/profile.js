@@ -76,7 +76,8 @@ const showProfile = () => {
 const contactClickHandler = function (evt) {
 	disableInputs();
 	currentContactElement = this;
-	currentContactData = window.contactsData[this.getAttribute("data-id")];
+	const id = this.getAttribute("data-id");
+	currentContactData = window.contactsData.find(contact => contact.id == id);
 	containProfile(currentContactData);
 	showProfile()
 };

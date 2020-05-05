@@ -3,7 +3,10 @@
 	height: 100%;
 	top: 0;
 	right: 0;
-	padding: 15px 0;
+	padding: 15px 0 0 0;
+	@media (max-width: @xs) {
+		padding: 45px 0 0 0;
+	};
 	&__list {
 		display: flex;
 		flex-direction: column;
@@ -20,13 +23,24 @@
 		height: 100%;
 		color: @black;
 		border-radius: 50%;
-		.bold();
-		font-size: 20px;
-		&--missing {
+		color: @missingLetter;
+		@media (max-width: @sm) {
+			font-size: 15px;
+			line-height: 15px;
+		}
+		&:hover {
 			color: @missingLetter;
-			font-size: 18px;
+		}
+		&--existing {
+			color: @black;
+			.bold();
+			font-size: 20px;
+			@media (max-width: @sm) {
+				font-size: 18px;
+				line-height: 18px;
+			}
 			&:hover {
-				color: @missingLetter;
+				color: @existingLetter;
 			}
 		}
 	}

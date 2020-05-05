@@ -52,7 +52,6 @@ module.exports = {
    },
    devServer: {
       overlay: true,
-      hot: true,
    },
    plugins: [
       new HtmlWebpackPlugin({

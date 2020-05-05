@@ -49,6 +49,8 @@ const createContact = (contactData) => {
 
 /* Render and append created contacts elements */
 const renderContacts = (contactsData) => {
+	existingLetters.length = 0;
+	contactsBody.innerHTML = ''; // clear contacts body
 	let currentLetter;
 	let currentContactBlock;
 	contactsData.forEach(function (contactData, i) {
@@ -65,9 +67,12 @@ const renderContacts = (contactsData) => {
 		const contact = createContact(contactData);
 		contactList.appendChild(contact);
 	});
+	checkLetters(existingLetters);
 };
 
 /* Set renderContacts as callback  */
 uploadContacts(renderContacts);
 
-checkLetters(existingLetters);
+
+
+export { renderContacts }

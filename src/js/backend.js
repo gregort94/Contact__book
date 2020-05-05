@@ -6,8 +6,8 @@ const UPLOAD_CONTACTS_URL = { method: 'GET', url: 'http://demo.sibers.com/users'
 const uploadContacts = (successHandler) => {
 	if (localStorage.contactsData) {
 		window.contactsData = JSON.parse(localStorage.contactsData);
-		let sortedData = sortByName(window.contactsData.slice());
-		successHandler(sortedData);
+		window.contactsData = sortByName(window.contactsData);
+		successHandler(window.contactsData);
 		return
 	}
 	const xhr = new XMLHttpRequest();
@@ -17,8 +17,8 @@ const uploadContacts = (successHandler) => {
 			case 200:
 				localStorage.setItem('contactsData', xhr.response);
 				window.contactsData = JSON.parse(localStorage.contactsData);
-				let sortedData = sortByName(window.contactsData.slice());
-				successHandler(sortedData);
+				window.contactsData = sortByName(window.contactsData);
+				successHandler(window.contactsData);
 				break;
 			case 400:
 				console.error('Invalid request');
