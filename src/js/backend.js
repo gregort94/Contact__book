@@ -1,23 +1,16 @@
 import sortByName from './sort'
 
-const UPLOAD_CONTACTS_URL = { method: 'GET', url: 'http://demo.sibers.com/users' };
+const UPLOAD_CONTACTS_URL = { method: 'GET', url: 'https://raw.githubusercontent.com/gregort94/DATA/master/users.json' };
 
 /* Get contacts data array form server by Ajax*/
 const uploadContacts = (successHandler) => {
-	if (localStorage.contactsData) {
-		window.contactsData = JSON.parse(localStorage.contactsData);
-		window.contactsData = sortByName(window.contactsData);
-		successHandler(window.contactsData);
-		return
-	}
 	const xhr = new XMLHttpRequest();
 	xhr.open(UPLOAD_CONTACTS_URL.method, UPLOAD_CONTACTS_URL.url);
+	xhr.responseType = 'json';
 	xhr.addEventListener('load', () => {
 		switch (xhr.status) {
 			case 200:
-				localStorage.setItem('contactsData', xhr.response);
-				window.contactsData = JSON.parse(localStorage.contactsData);
-				window.contactsData = sortByName(window.contactsData);
+				window.contactsData = sortByName(xhr.response);
 				successHandler(window.contactsData);
 				break;
 			case 400:
